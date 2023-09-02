@@ -26,7 +26,7 @@ class BankDBHelper {
     if (kIsWeb) {
       // Change default factory on the web
       databaseFactory = databaseFactoryFfiWeb;
-      path = "/assets/db";
+      path = "/assets/";
     } else {
       Directory directory = await getApplicationDocumentsDirectory();
       path = join(directory.path, DBConstant.databaseName);

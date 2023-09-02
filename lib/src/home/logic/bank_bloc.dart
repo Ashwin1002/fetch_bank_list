@@ -55,9 +55,9 @@ class BankBloc extends Bloc<BankEvent, BankState> {
             u.swiftCode.toLowerCase().startsWith(event.query.toLowerCase())))
         .toList();
 
-    log("searched key=> ${event.query}");
-    log("searched list => $filteredList");
-    log("temp list => $tempList");
+    // log("searched key=> ${event.query}");
+    // log("searched list => $filteredList");
+    // log("temp list => $tempList");
 
     emit(SearchBankStateLoaded(bankList: filteredList));
   }

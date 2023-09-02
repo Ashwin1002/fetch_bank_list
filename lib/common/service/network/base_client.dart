@@ -37,10 +37,7 @@ class BaseClient {
     }
     try {
       var response = await baseHttp
-          .get(
-            uri,
-            headers: header,
-          )
+          .get(uri, headers: header)
           .timeout(const Duration(seconds: _timeoutDuration));
       return AppResponse.processResponse(response);
     } on SocketException {

@@ -23,7 +23,7 @@ class BankRepository {
         endPoint: "bank",
         deviceModel: deviceModel ?? "",
       );
-      if (response != null) {
+      if (response case final response?) {
         await BankDBHelper.instance.deleteAllData();
         await DataCacheService.setCacheData();
 

@@ -24,7 +24,7 @@ class DataCacheService {
 
     List<BankModel> bankList = [];
 
-    if (timestamp != null) {
+    if (timestamp case final timestamp?) {
       final currentTime = DateTime.now().millisecondsSinceEpoch;
       if (currentTime - timestamp < 3600000) {
         bankList = await BankDBHelper.instance.getDataList();
@@ -36,7 +36,7 @@ class DataCacheService {
         await BankDBHelper.instance.deleteAllData();
         bankList = [];
         throw FetchDataException(
-          "Session Expired.\n Please Connect to the internet and try again",
+          "Session Expired.\nPlease Connect to the internet and try again",
           "NaN",
         );
       }

@@ -1,5 +1,6 @@
 import 'package:assign_khalti/common/constant/constant_text.dart';
 import 'package:assign_khalti/common/utils/device_info.dart';
+import 'package:assign_khalti/common/utils/extensions/space_extension.dart';
 import 'package:assign_khalti/common/utils/shared_pref.dart';
 import 'package:assign_khalti/src/home/logic/bank_bloc.dart';
 import 'package:assign_khalti/src/home/model/bank_model.dart';
@@ -75,17 +76,10 @@ class _HomeScreenState extends State<HomeScreen> {
           return Scaffold(
             body: CustomScrollView(
               slivers: [
-                const SliverAppBar(
-                  expandedHeight: 100,
-                  pinned: true,
-                  flexibleSpace: FlexibleSpaceBar(
-                    title: Text(
-                      "Bank List",
-                      style: TextStyle(
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
+                const CupertinoSliverNavigationBar(
+                  backgroundColor: Colors.white,
+                  largeTitle: Text("Loading"),
+                  border: Border(),
                 ),
                 SliverList.builder(
                   itemCount: 15,
@@ -106,23 +100,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     _searchBarheight = 37 - scrollNotification.metrics.pixels;
                   }
                 });
-                debugPrint("search bar height => $_searchBarheight");
+                // debugPrint("search bar height => $_searchBarheight");
                 return true;
               },
               child: CustomScrollView(
                 slivers: [
-                  // const SliverAppBar(
-                  //   expandedHeight: 120,
-                  //   pinned: true,
-                  //   flexibleSpace: FlexibleSpaceBar(
-                  //     title: Text(
-                  //       "Bank List",
-                  //       style: TextStyle(
-                  //         color: Colors.black,
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
                   const CupertinoSliverNavigationBar(
                     backgroundColor: Colors.white,
                     largeTitle: Text("Bank List"),
@@ -148,10 +130,28 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           );
         }
-        if (state is BankStateError) {
+        if (state is  BankStateError) {
           return Scaffold(
             body: Center(
-              child: Text(state.message),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    state.message,
+                    textScaleFactor: 1.1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  15.0.spaceY,
+                  ElevatedButton(
+                    onPressed: () {
+                      context
+                          .read<BankBloc>()
+                          .add(FetchBankListEvent(deviceModel: _deviceModel));
+                    },
+                    child: const Text("Retry Request"),
+                  )
+                ],
+              ),
             ),
           );
         }
