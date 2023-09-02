@@ -3,7 +3,6 @@ import 'package:assign_khalti/common/utils/extensions/size.dart';
 import 'package:assign_khalti/common/utils/extensions/space_extension.dart';
 import 'package:assign_khalti/common/widgets/list_loading_widget.dart';
 import 'package:assign_khalti/src/home/logic/bank_bloc.dart';
-import 'package:assign_khalti/src/home/model/bank_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

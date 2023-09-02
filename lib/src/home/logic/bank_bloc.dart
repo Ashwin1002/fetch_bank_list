@@ -6,7 +6,6 @@ import 'package:assign_khalti/src/home/repository/bank_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../common/service/sqflite/bank_db_helper.dart';
 import '../../../common/utils/shared_pref.dart';
 
 part 'bank_event.dart';

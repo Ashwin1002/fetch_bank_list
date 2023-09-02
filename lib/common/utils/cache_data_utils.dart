@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:assign_khalti/common/service/network/exceptions/app_exception.dart';
 import 'package:assign_khalti/common/service/sqflite/bank_db_helper.dart';
 import 'package:assign_khalti/common/utils/shared_pref.dart';
@@ -29,9 +28,7 @@ class DataCacheService {
       final currentTime = DateTime.now().millisecondsSinceEpoch;
       if (currentTime - timestamp < 3600000) {
         bankList = await BankDBHelper.instance.getDataList();
-        log("with in hour");
       } else {
-        log("expired");
         await SharePref.setData(
             key: ConstantText.isCacheExpired, type: 'bool', dValue: true);
         await SharePref.removeData(

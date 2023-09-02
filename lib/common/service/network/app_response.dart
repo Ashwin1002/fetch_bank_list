@@ -11,6 +11,12 @@ class AppResponse {
       log("response body => : ${response.body}");
     }
 
+    final int statusCode = response.statusCode;
+
+    // return switch((statusCode)) {
+    //     (200) =>  jsonDecode(response.body),
+    // };
+
     switch (response.statusCode) {
       case 200:
         var responseJson = jsonDecode(response.body);
@@ -47,7 +53,7 @@ class AppResponse {
         throw FetchDataException(
             "Internal Server Error.", response.request!.url.toString());
       case 609:
-        return "Data not Found.";
+        "Data not Found.";
       default:
         throw FetchDataException(
             'Error occurred with code : ${response.statusCode}, ${response.body}',
