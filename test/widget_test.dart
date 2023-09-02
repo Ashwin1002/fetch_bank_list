@@ -5,7 +5,7 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:assign_khalti/common/widgets/search_field_widget.dart';
+import 'package:assign_khalti/common/widgets/search_list_view_widget.dart';
 import 'package:assign_khalti/src/home/logic/bank_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

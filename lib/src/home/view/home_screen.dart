@@ -1,16 +1,11 @@
-import 'package:assign_khalti/common/constant/constant_text.dart';
-import 'package:assign_khalti/common/utils/device_info.dart';
-import 'package:assign_khalti/common/utils/extensions/space_extension.dart';
-import 'package:assign_khalti/common/utils/shared_pref.dart';
-import 'package:assign_khalti/src/home/logic/bank_bloc.dart';
-import 'package:assign_khalti/src/home/model/bank_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../common/widgets/list_loading_widget.dart';
-import '../../../common/widgets/list_single_widget.dart';
-import '../../../common/widgets/search_field_widget.dart';
+import '../../../common/constant/constant_text.dart';
+import '../../../common/utils/utils.dart';
+import '../../../common/widgets/widgets.dart';
+import '../logic/logic.dart';
+import '../model/model.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -130,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           );
         }
-        if (state is  BankStateError) {
+        if (state is BankStateError) {
           return Scaffold(
             body: Center(
               child: Column(

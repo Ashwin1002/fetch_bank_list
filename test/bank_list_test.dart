@@ -3,7 +3,6 @@ import 'package:assign_khalti/common/constant/constant_text.dart';
 import 'package:assign_khalti/common/service/network/base_client.dart';
 import 'package:assign_khalti/src/home/model/bank_model.dart';
 import 'package:flutter_test/flutter_test.dart';
-// file which has the getNumberTrivia function
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 import 'package:shared_preferences/shared_preferences.dart';

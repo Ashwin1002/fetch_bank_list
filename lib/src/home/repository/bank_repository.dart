@@ -1,9 +1,8 @@
 import 'dart:developer';
-import 'package:assign_khalti/common/service/network/base_client.dart';
-import 'package:assign_khalti/src/home/model/bank_model.dart';
 import 'package:http/http.dart' as http;
-import '../../../common/service/sqflite/bank_db_helper.dart';
-import '../../../common/utils/cache_data_utils.dart';
+import '../../../common/service/service.dart';
+import '../../../common/utils/utils.dart';
+import '../model/model.dart';
 
 final BaseClient _baseClient = BaseClient();
 
